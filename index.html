@@ -1,10 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My New Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JB Digital — Custom Android Apps</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.6; 
+      color: #ffffff; 
+      background: #000000; 
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* Smooth scrolling for the whole page */
+    html { scroll-behavior: smooth; }
+
+    nav { background: #000000; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #00ff41; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .nav-logo { height: 50px; width: auto; }
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links a { color: #00ff41; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #ffffff; }
+
+    header { background: #000000; color: white; padding: 4rem 0; text-align: center; }
+    .hero-logo { max-width: 180px; height: auto; margin-bottom: 1rem; }
+    header .tagline { font-size: 1.3rem; margin-bottom: 1.5rem; color: #ffffff; }
+    
+    .cta-button { 
+      display: inline-block; 
+      background: #00ff41; 
+      color: #000000; 
+      padding: 0.8rem 2rem; 
+      border-radius: 30px; 
+      text-decoration: none; 
+      font-weight: bold; 
+      transition: background 0.3s; 
+    }
+    .cta-button:hover { background: #ffffff; }
+
+    section { background: #0a0a0a; margin: 1.5rem 0; padding: 2rem 0; border-radius: 8px; border: 1px solid #1a1a1a; }
+    section h2 { font-size: 2rem; margin-bottom: 1rem; color: #00ff41; } 
+    section h3 { font-size: 1.3rem; margin: 1.5rem 0 0.5rem; color: #00ff41; }
+    p { color: #cccccc; margin-bottom: 1rem; }
+    ul { list-style: none; padding-left: 0; }
+    ul li { padding: 0.4rem 0; border-bottom: 1px solid #1a1a1a; color: #cccccc; }
+    ul li:last-child { border-bottom: none; }
+
+    .demo-gallery { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; justify-content: center; }
+    .demo-gallery img { max-width: 100%; width: 300px; border-radius: 8px; border: 2px solid #00ff41; }
+
+    #contact { background: #000000; border: 1px solid #00ff41; text-align: center; }
+    #contact a { color: #00ff41; text-decoration: none; font-weight: bold; }
+    #contact a:hover { text-decoration: underline; color: #ffffff; }
+
+    footer { text-align: center; padding: 1.5rem 0; color: #666666; font-size: 0.9rem; }
+
+    @media (max-width: 600px) {
+      .nav-container { flex-direction: column; gap: 0.5rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      header .tagline { font-size: 1.1rem; }
+      .demo-gallery img { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Website Coming Soon!</h1>
-    <p>Hosted safely on GitHub Pages via Name.com.</p>
+
+  <nav>
+    <div class="container nav-container">
+      <img src="logo.png" alt="JB Digital" class="nav-logo" />
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <img src="logo.png" alt="JB Digital logo" class="hero-logo" />
+      <p class="tagline">Custom Android Apps Built Around Your Ideas</p>
+      <a href="#contact" class="cta-button">Start Your Project</a>
+    </div>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <h2>Your Ideas, Your Apps — Custom Android Development by JB Digital</h2>
+      
+      <p><strong>Building apps that fit your life — and your budget.</strong></p>
+
+      <p>At JB Digital, I believe every great idea deserves a great app — whether it's a simple productivity tool, a business dashboard, or something entirely new.</p>
+
+      <p>I specialize in custom Android app development, starting from your vision and turning it into a polished, functional APK you can actually use and share.</p>
+
+      <h3>A few things I love building:</h3>
+      <ul>
+        <li>Productivity and note-taking tools</li>
+        <li>Business dashboards and admin panels</li>
+        <li>Custom utilities for personal use</li>
+        <li>Interactive prototypes for startups</li>
+      </ul>
+      
+      <p>I work directly with you — from brainstorming to testing to final delivery.</p>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION (Fixed so the menu button lands here!) -->
+  <section id="pricing">
+    <div class="container">
+      <h2>How I price my work:</h2>
+      <p><strong>Simple. Transparent. Fair.</strong></p>
+      <p>Every project is unique, so I price based on how customized and complex the app needs to be. Whether you need a lightweight notes app, a task tracker, or something more advanced, I'll work with you to find the right scope — and the right price — for your goals.</p>
+      <p>No cookie-cutter packages. No hidden fees. Just honest work, built with care.</p>
+      
+      <h3 style="margin-top: 2rem;">Interested? Let's talk.</h3>
+      <p>If you have an idea in mind — or even just a sketch on a napkin — I'd love to hear it.</p>
+      <p>📧 <strong>Contact me:</strong> <a href="mailto:justinhatch@jbdigital.dev">justinhatch@jbdigital.dev</a></p>
+      <p>🌐 <strong>More soon at:</strong> <a href="https://jbdigital.dev" target="_blank">jbdigital.dev</a></p>
+      <p>Let's build something that works — for you, your business, or your next big idea.</p>
+      <p>— Justin<br />Founder, JB Digital</p>
+    </div>
+  </section>
+
+  <!-- DEMO SECTION -->
+  <section id="demo">
+    <div class="container">
+      <h2>Example: Custom Notes App</h2>
+      <div class="demo-gallery">
+        <img src="screenshot1.jpg" alt="Notes app screenshot 1" />
+        <img src="screenshot2.jpg" alt="Notes app screenshot 2" />
+        <img src="screenshot3.jpg" alt="Notes app screenshot 3" />
+        <img src="screenshot4.jpg" alt="Notes app screenshot 4" />
+      </div>
+      <p style="text-align: center;">A lightweight, customized notes app built with your needs in mind — clean, fast, and branded for your business.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <h2>Let's Build Something Great</h2>
+      <p>Have an idea — or even just a rough sketch? I'd love to hear it.</p>
+      <p><strong>Email:</strong> <a href="mailto:justinhatch@jbdigital.dev">justinhatch@jbdigital.dev</a></p>
+      <p><strong>Website:</strong> <a href="https://jbdigital.dev" target="_blank">jbdigital.dev</a></p>
+      <p style="color:#ffffff;">— Justin<br />Founder, JB Digital</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 JB Digital. Built with ❤️</p>
+    </div>
+  </footer>
+
 </body>
 </html>
