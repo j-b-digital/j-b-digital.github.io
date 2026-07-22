@@ -15,8 +15,8 @@
     }
     .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-    /* Smooth scrolling for the whole page */
-    html { scroll-behavior: smooth; }
+    /* --- FIX IS RIGHT HERE --- */
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 
     nav { background: #000000; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #00ff41; }
     .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
@@ -74,6 +74,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#build">How I Build</a></li>
         <li><a href="#demo">Demo</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -88,7 +89,6 @@
     </div>
   </header>
 
-  <!-- ABOUT SECTION -->
   <section id="about">
     <div class="container">
       <h2>Your Ideas, Your Apps — Custom Android Development by JB Digital</h2>
@@ -111,7 +111,19 @@
     </div>
   </section>
 
-  <!-- PRICING SECTION (Fixed so the menu button lands here!) -->
+  <section id="build">
+    <div class="container">
+      <h2>Built with real code, not a factory</h2>
+      <p>I don't use APK maker apps or cookie-cutter tools. Every project is hand-coded in Android Studio, giving you:</p>
+      <ul>
+        <li>Full control over performance and design</li>
+        <li>No bloatware or hidden ads</li>
+        <li>A unique app that stands out from the crowd</li>
+      </ul>
+      <p>You get a true custom app — not a re-skinned template.</p>
+    </div>
+  </section>
+
   <section id="pricing">
     <div class="container">
       <h2>How I price my work:</h2>
@@ -128,7 +140,6 @@
     </div>
   </section>
 
-  <!-- DEMO SECTION -->
   <section id="demo">
     <div class="container">
       <h2>Example: Custom Notes App</h2>
@@ -142,7 +153,6 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
   <section id="contact">
     <div class="container">
       <h2>Let's Build Something Great</h2>
