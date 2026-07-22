@@ -15,8 +15,8 @@
     }
     .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-    /* --- FIX IS RIGHT HERE --- */
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
 
     nav { background: #000000; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #00ff41; }
     .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
@@ -168,6 +168,23 @@
       <p>&copy; 2026 JB Digital. Built with ❤️</p>
     </div>
   </footer>
+
+  <!-- JAVASCRIPT FIX FOR SCROLLING -->
+  <script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: elementPosition - navHeight - 10,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
