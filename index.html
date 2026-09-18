@@ -15,7 +15,6 @@
     }
     .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-    /* Smooth scrolling */
     html { scroll-behavior: smooth; }
 
     nav { background: #000000; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #00ff41; }
@@ -25,9 +24,22 @@
     .nav-links a { color: #00ff41; text-decoration: none; font-weight: 500; transition: color 0.3s; }
     .nav-links a:hover { color: #ffffff; }
 
-    header { background: #000000; color: white; padding: 4rem 0; text-align: center; }
-    .hero-logo { max-width: 180px; height: auto; margin-bottom: 1rem; }
-    header .tagline { font-size: 1.3rem; margin-bottom: 1.5rem; color: #ffffff; }
+    /* HERO SECTION - logo left, video right */
+    header { background: #000000; color: white; padding: 3rem 0; }
+    .hero-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    .hero-logo { max-width: 160px; height: auto; margin-bottom: 1rem; }
+    header .tagline { font-size: 1.2rem; margin-bottom: 1.5rem; color: #ffffff; }
     
     .cta-button { 
       display: inline-block; 
@@ -41,6 +53,15 @@
     }
     .cta-button:hover { background: #ffffff; }
 
+    /* VIDEO */
+    .hero-video video {
+      width: 200px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid #00ff41;
+    }
+
     section { background: #0a0a0a; margin: 1.5rem 0; padding: 2rem 0; border-radius: 8px; border: 1px solid #1a1a1a; }
     section h2 { font-size: 2rem; margin-bottom: 1rem; color: #00ff41; } 
     section h3 { font-size: 1.3rem; margin: 1.5rem 0 0.5rem; color: #00ff41; }
@@ -49,8 +70,18 @@
     ul li { padding: 0.4rem 0; border-bottom: 1px solid #1a1a1a; color: #cccccc; }
     ul li:last-child { border-bottom: none; }
 
-    .demo-gallery { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; justify-content: center; }
-    .demo-gallery img { max-width: 100%; width: 300px; border-radius: 8px; border: 2px solid #00ff41; }
+    .demo-gallery { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 0.75rem; 
+      margin: 1.5rem 0; 
+    }
+    .demo-gallery img { 
+      width: 100%; 
+      height: auto; 
+      border-radius: 8px; 
+      border: 2px solid #00ff41; 
+    }
 
     #contact { background: #000000; border: 1px solid #00ff41; text-align: center; }
     #contact a { color: #00ff41; text-decoration: none; font-weight: bold; }
@@ -61,8 +92,8 @@
     @media (max-width: 600px) {
       .nav-container { flex-direction: column; gap: 0.5rem; }
       .nav-links { flex-wrap: wrap; justify-content: center; }
-      header .tagline { font-size: 1.1rem; }
-      .demo-gallery img { width: 100%; }
+      header .tagline { font-size: 1rem; }
+      .demo-gallery { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -82,10 +113,18 @@
   </nav>
 
   <header>
-    <div class="container">
-      <img src="logo.png" alt="JB Digital logo" class="hero-logo" />
-      <p class="tagline">Custom Android Apps Built Around Your Ideas</p>
-      <a href="#contact" class="cta-button">Start Your Project</a>
+    <div class="container hero-flex">
+      <div class="hero-text">
+        <img src="logo.png" alt="JB Digital logo" class="hero-logo" />
+        <p class="tagline">Custom Android Apps Built Around Your Ideas</p>
+        <a href="#contact" class="cta-button">Start Your Project</a>
+      </div>
+      <div class="hero-video">
+        <video autoplay loop muted playsinline poster="intro-poster.webp">
+          <source src="intro.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   </header>
 
@@ -169,19 +208,20 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT FIX FOR SCROLLING -->
   <script>
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        const navHeight = document.querySelector('nav').offsetHeight;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({
-          top: elementPosition - navHeight - 10,
-          behavior: 'smooth'
-        });
+        if (targetElement) {
+          const navHeight = document.querySelector('nav').offsetHeight;
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: elementPosition - navHeight - 10,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   </script>
