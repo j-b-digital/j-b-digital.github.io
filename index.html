@@ -212,16 +212,18 @@
   <script>
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
         const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          const navHeight = document.querySelector('nav').offsetHeight;
-          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({
-            top: elementPosition - navHeight - 10,
-            behavior: 'smooth'
-          });
+        if (targetId.startsWith('#')) {
+          e.preventDefault();
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+              top: elementPosition - navHeight - 10,
+              behavior: 'smooth'
+            });
+          }
         }
       });
     });
