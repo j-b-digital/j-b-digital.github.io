@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JB Digital Blog — So You Want to Build an AI Agent</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.7; 
+      color: #ffffff; 
+      background: #000000; 
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    html { scroll-behavior: smooth; }
+
+    nav { background: #000000; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #00ff41; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .nav-logo { height: 50px; width: auto; }
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links a { color: #00ff41; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #ffffff; }
+
+    .post-header { padding: 3rem 0 1rem 0; text-align: center; border-bottom: 1px solid #1a1a1a; }
+    .post-header h1 { font-size: 2.2rem; color: #00ff41; margin-bottom: 0.5rem; }
+    .post-header .post-meta { color: #666666; font-size: 0.9rem; }
+
+    .post-content { padding: 2rem 0; }
+    .post-content h2 { font-size: 1.5rem; color: #00ff41; margin: 2rem 0 0.8rem 0; }
+    .post-content h3 { font-size: 1.2rem; color: #00ff41; margin: 1.5rem 0 0.5rem 0; }
+    .post-content p { color: #cccccc; margin-bottom: 1rem; }
+    .post-content ul { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+    .post-content ul li { 
+      padding: 0.4rem 0 0.4rem 1.5rem; 
+      position: relative; 
+      color: #cccccc; 
+      border-bottom: 1px solid #111111;
+    }
+    .post-content ul li:before {
+      content: "▸";
+      color: #00ff41;
+      position: absolute;
+      left: 0;
+    }
+    .post-content ul li:last-child { border-bottom: none; }
+
+    .tip-box {
+      background: #0a0a0a;
+      border-left: 3px solid #00ff41;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .tip-box h3 { margin-top: 0; }
+
+    /* SCREENSHOTS */
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .screenshot-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid #00ff41;
+    }
+    .screenshot-caption {
+      text-align: center;
+      color: #666666;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #00ff41;
+      text-decoration: none;
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+    .back-link:hover { color: #ffffff; }
+
+    #contact { background: #000000; border: 1px solid #00ff41; text-align: center; margin-top: 2rem; }
+    #contact a { color: #00ff41; text-decoration: none; font-weight: bold; }
+    #contact a:hover { text-decoration: underline; color: #ffffff; }
+
+    footer { text-align: center; padding: 1.5rem 0; color: #666666; font-size: 0.9rem; }
+
+    @media (max-width: 600px) {
+      .nav-container { flex-direction: column; gap: 0.5rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .post-header h1 { font-size: 1.6rem; }
+      .screenshot-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-container">
+      <a href="index.html"><img src="logo.png" alt="JB Digital" class="nav-logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#build">How I Build</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="post-header">
+      <h1>So You Want to Build an AI Agent</h1>
+      <p class="post-meta">By Justin Hatch · JB Digital Blog</p>
+    </div>
+
+    <div class="post-content">
+
+      <p>AI agents are one of those things that sound intimidating until you actually start building one. Then you realize it's mostly just a loop, some tools, and a lot of trial and error. This is a quick rundown of what they are, where to start, and what to watch out for — plus a few tips that took me way too long to learn.</p>
+
+      <h2>What is an AI agent, really?</h2>
+      <p>At its core, an AI agent is a program that:</p>
+      <ul>
+        <li>Takes in a goal</li>
+        <li>Decides what steps to take</li>
+        <li>Uses tools (search, files, APIs, code)</li>
+        <li>Checks its own work</li>
+        <li>Repeats until the job is done</li>
+      </ul>
+      <p>That's it. The "agent" part just means it can act on its own instead of only answering one question at a time.</p>
+
+      <h2>Where to start</h2>
+      <p>Don't start by building something huge. Start small and boring.</p>
+      <ul>
+        <li>Pick one simple task (e.g., summarize a webpage)</li>
+        <li>Give it one tool (e.g., a web request)</li>
+        <li>Let it run once and see what happens</li>
+        <li>Then add memory, then more tools, then loops</li>
+      </ul>
+      <p>If you can get a basic agent to do one thing reliably, scaling up is just repetition.</p>
+
+      <h2>Tools and skills you'll pick up</h2>
+      <ul>
+        <li>Basic Python (or JavaScript)</li>
+        <li>How to call an API</li>
+        <li>Prompt writing (clear instructions matter more than fancy code)</li>
+        <li>File handling and simple storage</li>
+        <li>Debugging — lots of it</li>
+      </ul>
+      <p>You don't need to be an expert in any of these. You learn them as you go.</p>
+
+      <h2>Building your own app around it</h2>
+      <p>Once the agent works, you can wrap it in your own app. This is where it gets fun:</p>
+      <ul>
+        <li>Add a simple UI (even a basic form works)</li>
+        <li>Let users type a goal and hit "Run"</li>
+        <li>Show the agent's steps as it works</li>
+        <li>Save results so users can come back to them</li>
+      </ul>
+      <p>You don't need a fancy framework to start. A plain app with one button and one output box is enough to prove the idea.</p>
+
+      <h2>Common problems and rookie mistakes</h2>
+      <ul>
+        <li><strong>No clear goal</strong> — the agent wanders because you didn't tell it exactly what "done" looks like</li>
+        <li><strong>Too many tools at once</strong> — it gets confused; add one at a time</li>
+        <li><strong>No error handling</strong> — one failed API call kills the whole run</li>
+        <li><strong>No memory</strong> — it forgets everything between steps</li>
+        <li><strong>No logging</strong> — you can't debug what you can't see</li>
+        <li><strong>Giving up too early</strong> — most agents "work" after the 10th tweak, not the 1st</li>
+      </ul>
+
+      <h2>Three tips worth remembering</h2>
+
+      <div class="tip-box">
+        <h3>1. Use a local model when you can</h3>
+        <p>If you don't always have internet — or you just want privacy — a local model running on your own machine is a game changer. It's slower, but it's yours. No API bills, no outages, no data leaving your computer.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>2. Give your agent memory</h3>
+        <p>An agent without memory is just a fancy chatbot. Even simple memory (saving notes to a file or database) makes it feel 10x smarter. It can pick up where it left off, remember past tasks, and build on what it already knows.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>3. Back up your work — always</h3>
+        <p>At least periodically, and on external storage if you have it. Agents and their data are easy to lose. One bad update, one corrupt file, one accidental delete — and hours of work are gone. Save early, save often.</p>
+      </div>
+
+      <h2>Some of what I've been working on</h2>
+      <p>A few screenshots from the apps and tools I've been building along the way:</p>
+
+      <div class="screenshot-grid">
+        <img src="screenshot5.jpg" alt="Project screenshot 5" />
+        <img src="screenshot6.jpg" alt="Project screenshot 6" />
+        <img src="screenshot7.jpg" alt="Project screenshot 7" />
+        <img src="screenshot8.jpg" alt="Project screenshot 8" />
+        <img src="screenshot9.jpg" alt="Project screenshot 9" />
+        <img src="screenshot10.jpg" alt="Project screenshot 10" />
+      </div>
+      <p class="screenshot-caption">A few examples of custom work — more coming soon.</p>
+
+      <p>That's the short version. If you're thinking about building an agent, just start. You'll learn more in one weekend of tinkering than in a month of reading about it.</p>
+
+      <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    </div>
+
+    <section id="contact">
+      <div class="container">
+        <h2 style="color:#00ff41;">Let's Build Something Great</h2>
+        <p>Have an idea — or even just a rough sketch? I'd love to hear it.</p>
+        <p><strong>Email:</strong> <a href="mailto:justinhatch@jbdigital.dev">justinhatch@jbdigital.dev</a></p>
+        <p><strong>Website:</strong> <a href="https://jbdigital.dev" target="_blank">jbdigital.dev</a></p>
+        <p>— Justin<br />Founder, JB Digital</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 JB Digital. Built with ❤️</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

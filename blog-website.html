@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Build a Website — JB Digital Blog</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.7; 
+      color: #ffffff; 
+      background: #000000; 
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    html { scroll-behavior: smooth; }
+
+    nav { background: #000000; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #00ff41; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .nav-logo { height: 50px; width: auto; }
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links a { color: #00ff41; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #ffffff; }
+
+    .post-header { padding: 3rem 0 1rem 0; text-align: center; border-bottom: 1px solid #1a1a1a; }
+    .post-header h1 { font-size: 2.2rem; color: #00ff41; margin-bottom: 0.5rem; }
+    .post-header .post-meta { color: #666666; font-size: 0.9rem; }
+
+    .post-content { padding: 2rem 0; }
+    .post-content h2 { font-size: 1.5rem; color: #00ff41; margin: 2rem 0 0.8rem 0; }
+    .post-content h3 { font-size: 1.2rem; color: #00ff41; margin: 1.5rem 0 0.5rem 0; }
+    .post-content p { color: #cccccc; margin-bottom: 1rem; }
+    .post-content ul { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+    .post-content ul li { 
+      padding: 0.4rem 0 0.4rem 1.5rem; 
+      position: relative; 
+      color: #cccccc; 
+      border-bottom: 1px solid #111111;
+    }
+    .post-content ul li:before {
+      content: "▸";
+      color: #00ff41;
+      position: absolute;
+      left: 0;
+    }
+    .post-content ul li:last-child { border-bottom: none; }
+
+    .back-link {
+      display: inline-block;
+      color: #00ff41;
+      text-decoration: none;
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+    .back-link:hover { color: #ffffff; }
+
+    #contact { background: #000000; border: 1px solid #00ff41; text-align: center; margin-top: 2rem; border-radius: 8px; }
+    #contact a { color: #00ff41; text-decoration: none; font-weight: bold; }
+    #contact a:hover { text-decoration: underline; color: #ffffff; }
+
+    footer { text-align: center; padding: 1.5rem 0; color: #666666; font-size: 0.9rem; }
+
+    @media (max-width: 600px) {
+      .nav-container { flex-direction: column; gap: 0.5rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .post-header h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-container">
+      <a href="index.html"><img src="logo.png" alt="JB Digital" class="nav-logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#build">How I Build</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="post-header">
+      <h1>How to Build a Website (The Way I Actually Did It)</h1>
+      <p class="post-meta">By Justin Hatch · JB Digital Blog</p>
+    </div>
+
+    <div class="post-content">
+
+      <p>I put off building my own website for a long time. Not because I didn't want one — but because every option I looked at either cost money every month, slapped their branding on my site, or felt like I was renting space instead of owning it.</p>
+
+      <p>Then I found a way that costs <strong>nothing</strong>, gives you <strong>full control</strong>, and doesn't put anyone else's name on your work.</p>
+
+      <p>This is how I built mine, and how you can do the same.</p>
+
+      <h2>The problem with most website builders</h2>
+      <p>Wix, Squarespace, and similar tools are fine for some people. They're fast to set up, and you don't need to touch any code.</p>
+      <p>But there are two things that always bugged me:</p>
+      <ul>
+        <li><strong>They brand your site.</strong> Your free plan almost always comes with "Built with Wix" or something similar tucked in the corner. For a business, that looks unprofessional.</li>
+        <li><strong>You don't own anything.</strong> You're paying monthly to rent a page. Stop paying, and it's gone.</li>
+      </ul>
+      <p>I wanted something I actually owned. So I went a different route.</p>
+
+      <h2>What I chose instead: GitHub Pages</h2>
+      <p>GitHub Pages is a free hosting service built into GitHub. It's made for exactly this — simple websites, portfolios, landing pages, business sites.</p>
+      <p>Here's what you get:</p>
+      <ul>
+        <li><strong>Free hosting</strong>, forever</li>
+        <li><strong>A clean URL</strong> — <code>yourusername.github.io</code></li>
+        <li><strong>No ads, no branding</strong>, no "built with" badge</li>
+        <li><strong>Full control</strong> over your code</li>
+        <li><strong>Custom domain support</strong> if you want your own name later</li>
+      </ul>
+      <p>And if you <em>do</em> want your own domain — like <code>yourbusiness.com</code> — you can connect it for just a few dollars a year. No monthly hosting fees.</p>
+      <p>That's the whole reason I went this route. <strong>Free if you want free. Cheap if you want your own name.</strong></p>
+
+      <h2>How I actually built it</h2>
+
+      <h3>1. I picked a name and grabbed a domain</h3>
+      <p>You don't have to do this first, but I did. I wanted <code>jbdigital.dev</code> so my business had a real home. A <code>.dev</code> domain was cheap for the first year.</p>
+      <p>If you're not ready to pay, skip this step. GitHub's free URL works perfectly.</p>
+
+      <h3>2. I created a repository on GitHub</h3>
+      <p>I already had a GitHub account, so I skipped that part. But if you don't have one, it's free and takes two minutes to set up.</p>
+      <p>A "repository" is just a folder GitHub keeps for you. I made one, kept it public, and that became the home for my site files.</p>
+
+      <h3>3. I wrote the site in one HTML file</h3>
+      <p>This is the part that scares people, but it's genuinely not that bad. My entire website is a single file called <code>index.html</code>. That file contains the layout, the styling, everything.</p>
+
+      <h3>4. I used AI to help me write it</h3>
+      <p>I'm not going to pretend I hand-typed every line. I used AI to write the HTML and CSS, and I tweaked it until it looked right. There's no shame in that — it's a tool, and it works.</p>
+
+      <h3>5. I uploaded the files to GitHub</h3>
+      <p>You drag your files into GitHub's website and click "Commit changes." That's it. No FTP, no complicated setup.</p>
+      <p>That includes your images — logos, screenshots, even videos. You just drop them in the same folder as your HTML file, and the code points to them by name.</p>
+
+      <h3>6. I turned on GitHub Pages</h3>
+      <p>In the repository settings, there's a "Pages" section. You select your branch, click save, and GitHub publishes your site for you.</p>
+
+      <h3>7. I connected my domain</h3>
+      <p>I added my custom domain in the Pages settings and updated a couple of DNS records where I bought the domain. GitHub handled the rest, including HTTPS.</p>
+
+      <h3>8. It was live</h3>
+      <p>Within a couple of minutes, <code>jbdigital.dev</code> was online.</p>
+
+      <h2>What I'd tell someone starting today</h2>
+      <ul>
+        <li><strong>Start with the free URL.</strong> You can always add a custom domain later.</li>
+        <li><strong>Don't overthink the design.</strong> Simple, clean pages look more professional than busy ones anyway.</li>
+        <li><strong>Use AI as a helper, not a crutch.</strong> It'll get you 90% of the way there. You just have to know what you want.</li>
+        <li><strong>Expect small hiccups.</strong> Images might not load right away, links might not scroll right — that's normal. Every problem has a fix.</li>
+        <li><strong>Save early, save often.</strong> Keep backups of your files, and save a copy before making big changes.</li>
+        <li><strong>Update the site when you can.</strong> A site that never changes looks abandoned.</li>
+      </ul>
+
+      <h2>Do you actually need to know how to code?</h2>
+      <p>Not really. You need to be willing to <strong>copy, paste, and tweak</strong>. That's what I did.</p>
+      <p>But here's the thing — <strong>understanding it definitely helps</strong>. And honestly? You might learn more by doing this than by trying to study it first.</p>
+      <p>I can't write code from scratch. But when a build fails on my Android app in Android Studio, most of the time I'm the one who can spot where it went wrong. Not because I'm a coder — but because I've broken things enough times to recognize the patterns.</p>
+      <p>Building a website works the same way. You'll learn by doing, and by fixing what breaks.</p>
+      <p>If you want to build something for your business and you'd rather have someone do it for you — well, that's what I do.</p>
+
+      <h2>Bottom line</h2>
+      <p>You can have a real website. Not a free-trial one, not one with someone else's name on it, and not one that disappears when you stop paying.</p>
+      <p>GitHub Pages gave me a real site for free. My own domain cost me a few dollars a year. That's it.</p>
+      <p>If you've been putting it off — this is your sign. Start today. It's more doable than it looks.</p>
+
+      <p style="color:#ffffff; margin-top: 2rem;">— Justin, Founder of JB Digital</p>
+
+      <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    </div>
+
+    <section id="contact">
+      <div class="container">
+        <h2 style="color:#00ff41;">Let's Build Something Great</h2>
+        <p>Have an idea — or even just a rough sketch? I'd love to hear it.</p>
+        <p><strong>Email:</strong> <a href="mailto:justinhatch@jbdigital.dev">justinhatch@jbdigital.dev</a></p>
+        <p><strong>Website:</strong> <a href="https://jbdigital.dev" target="_blank">jbdigital.dev</a></p>
+        <p>— Justin<br />Founder, JB Digital</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 JB Digital. Built with ❤️</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
