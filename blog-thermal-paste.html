@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Time I Killed a Laptop Changing Thermal Paste — JB Digital Blog</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.7; 
+      color: #ffffff; 
+      background: #000000; 
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    html { scroll-behavior: smooth; }
+
+    nav { background: #000000; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #00ff41; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .nav-logo { height: 50px; width: auto; }
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links a { color: #00ff41; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #ffffff; }
+
+    .post-header { padding: 3rem 0 1rem 0; text-align: center; border-bottom: 1px solid #1a1a1a; }
+    .post-header h1 { font-size: 2.2rem; color: #00ff41; margin-bottom: 0.5rem; }
+    .post-header .post-meta { color: #666666; font-size: 0.9rem; }
+
+    .post-content { padding: 2rem 0; }
+    .post-content h2 { font-size: 1.5rem; color: #00ff41; margin: 2rem 0 0.8rem 0; }
+    .post-content h3 { font-size: 1.2rem; color: #00ff41; margin: 1.5rem 0 0.5rem 0; }
+    .post-content p { color: #cccccc; margin-bottom: 1rem; }
+    .post-content ul { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+    .post-content ul li { 
+      padding: 0.4rem 0 0.4rem 1.5rem; 
+      position: relative; 
+      color: #cccccc; 
+      border-bottom: 1px solid #111111;
+    }
+    .post-content ul li:before {
+      content: "▸";
+      color: #00ff41;
+      position: absolute;
+      left: 0;
+    }
+    .post-content ul li:last-child { border-bottom: none; }
+
+    .back-link {
+      display: inline-block;
+      color: #00ff41;
+      text-decoration: none;
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+    .back-link:hover { color: #ffffff; }
+
+    #contact { background: #000000; border: 1px solid #00ff41; text-align: center; margin-top: 2rem; border-radius: 8px; }
+    #contact a { color: #00ff41; text-decoration: none; font-weight: bold; }
+    #contact a:hover { text-decoration: underline; color: #ffffff; }
+
+    footer { text-align: center; padding: 1.5rem 0; color: #666666; font-size: 0.9rem; }
+
+    @media (max-width: 600px) {
+      .nav-container { flex-direction: column; gap: 0.5rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .post-header h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-container">
+      <a href="index.html"><img src="logo.png" alt="JB Digital" class="nav-logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#build">How I Build</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="post-header">
+      <h1>The Time I Killed a Laptop Changing Thermal Paste</h1>
+      <p class="post-meta">By Justin Hatch · JB Digital Blog</p>
+    </div>
+
+    <div class="post-content">
+
+      <p>I've changed thermal paste more times than I can count. Never had a problem.</p>
+
+      <p>Then one day, on a cheap laptop I picked up off Amazon, something went wrong. And it wasn't a dramatic mistake — it was a <strong>small one</strong>, the kind you'd never think twice about.</p>
+
+      <p>That's what made it worse.</p>
+
+      <h2>What I was doing</h2>
+      <p>Nothing fancy. I was just changing the thermal paste on a generic laptop I'd bought off Amazon — one of those no-name models. I want to say it was labeled something like an "Intel BTC519" but honestly, I'm not even sure what the brand was.</p>
+      <p>Thankfully, it wasn't an expensive machine. That's the only thing that softened the blow.</p>
+      <p>I opened it up, cleaned off the old paste, applied new paste, and put it back together. Same thing I'd done a dozen times before.</p>
+      <p>Then I pressed the power button.</p>
+      <p>Nothing.</p>
+
+      <h2>The troubleshooting</h2>
+      <p>The charging light came on when I plugged it in — but instead of the normal color, it showed red most of the time. Occasionally it changed, like it was trying to charge normally. But the laptop never turned on again.</p>
+      <p>So I started eliminating possibilities:</p>
+      <ul>
+        <li><strong>I tested the battery</strong> — fine</li>
+        <li><strong>I checked the RAM</strong> — fine, tested it in another computer</li>
+        <li><strong>I checked the SSD</strong> — fine, also tested in another computer</li>
+      </ul>
+      <p>Everything worked. Except the laptop itself.</p>
+      <p>That left one conclusion: <strong>the motherboard.</strong></p>
+
+      <h2>What probably caused it</h2>
+      <p>I narrowed it down to three possibilities:</p>
+
+      <h3>1. Board flexing from overtightening (most likely)</h3>
+      <p>This is the one I'm most confident about. When you tighten the screws on a motherboard — especially the ones around the CPU heatsink — too much, the board can flex. And a flexed board can crack solder joints or damage traces.</p>
+      <p>The kicker? <strong>I didn't tighten the screws in an X pattern.</strong> I tightened them one at a time, in order. I didn't know until later that you're supposed to tighten them in a crisscross pattern, gradually, so the pressure stays even.</p>
+      <p>If I had done that, this probably wouldn't have happened.</p>
+
+      <h3>2. Static discharge (possible, but unlikely)</h3>
+      <p>This is always a possibility when you're working inside a computer, and I can't rule it out 100%. But I don't think it was this.</p>
+      <p>Why? Because I've done this exact same work, in the same spot, with the same tools, with the same paste — many times. I've never had a single static issue with any device, not just computers. Same conditions, same result every time before.</p>
+      <p>Could it have been static? Sure. But it doesn't match the pattern.</p>
+
+      <h3>3. Too much paste / paste on the motherboard (ruled out)</h3>
+      <p>Some people suggested I used too much paste or accidentally got some on the board. That one I can rule out — I was using <strong>non-conductive thermal paste.</strong></p>
+      <p>If it had been conductive paste, a stray bit on the board could absolutely fry something. Non-conductive paste won't do that. So this wasn't it.</p>
+
+      <h2>What I'd do differently</h2>
+
+      <p><strong>Use non-conductive thermal paste.</strong> Especially if you're new to this. If you accidentally get a little somewhere it shouldn't be, conductive paste can short things out. Non-conductive paste won't. It's a cheap insurance policy.</p>
+
+      <p><strong>Don't overtighten the screws. Ever.</strong> This is the big one. Tighten them just until they stop turning easily, then stop. Don't crank them down. You're not trying to compress anything — you're just holding the heatsink in place.</p>
+
+      <p><strong>Use the X pattern.</strong> When tightening screws around a CPU or motherboard, go in a crisscross pattern, a little at a time. This keeps the pressure even and prevents the board from flexing. I didn't know this at the time. I do now.</p>
+
+      <p><strong>Don't open your computer unless you have to.</strong> I used to open mine more often than necessary. Now I don't. If your laptop has a small access panel for RAM and storage, use that for upgrades — you don't need to take the whole bottom off.</p>
+
+      <p><strong>Don't change thermal paste on a schedule.</strong> Only do it when it actually needs it — when temps are climbing and everything else has been ruled out.</p>
+
+      <h2>The honest part</h2>
+      <p>I'm <strong>too</strong> careful now. Changing thermal paste takes me way longer than it should, because I'm nervous the whole time. The only other computer I have is old and can't handle what I do, so I can't afford to break anything else.</p>
+      <p>I don't think that's a bad thing — but I also don't want anyone reading this to be scared of opening their laptop.</p>
+      <p>The truth is: this is <strong>rare</strong>. Millions of people repaste their laptops every year without issue. I made a specific mistake — overtightening, and not using the X pattern — and it cost me a motherboard.</p>
+      <p>Learn from my mistake, and you'll be fine.</p>
+
+      <h2>What's next</h2>
+      <p>I'll be covering repairs, software development, web development, and AI on a couple of YouTube channels soon — including a video and blog post about <strong>how to start your own channel</strong> if you're interested.</p>
+      <p>If you want to see something specific, or you've got a repair story of your own, email me at <a href="mailto:justinhatch@jbdigital.dev" style="color:#00ff41;">justinhatch@jbdigital.dev</a>.</p>
+
+      <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    </div>
+
+    <section id="contact">
+      <div class="container">
+        <h2 style="color:#00ff41;">Let's Build Something Great</h2>
+        <p>Have an idea — or even just a rough sketch? I'd love to hear it.</p>
+        <p><strong>Email:</strong> <a href="mailto:justinhatch@jbdigital.dev">justinhatch@jbdigital.dev</a></p>
+        <p><strong>Website:</strong> <a href="https://jbdigital.dev" target="_blank">jbdigital.dev</a></p>
+        <p>— Justin<br />Founder, JB Digital</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 JB Digital. Built with ❤️</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
